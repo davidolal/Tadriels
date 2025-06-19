@@ -3,223 +3,458 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tadriel's Event Planning & Rentals</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <title>Tadriel's Event Planners & Rentals</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Lato', sans-serif;
-      background: #f9fcff;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #fffaf7;
       color: #333;
-      line-height: 1.6;
     }
-    nav {
-      background: #0b1a2d;
-      color: white;
-      padding: 15px 40px;
+    header.navbar {
+      background: linear-gradient(90deg, #fff, #f7ecec);
+      padding: 1.2rem 2rem;
       display: flex;
       justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 999;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .navbar .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #cc3366;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.2rem;
     }
     nav a {
-      color: white;
       text-decoration: none;
-      margin: 0 15px;
-      font-weight: 700;
+      color: #333;
+      font-weight: 500;
     }
-    nav a:hover {
-      color: #fdd835;
-    }
-    header {
+    .hero {
+      background: linear-gradient(to bottom, #fff, #ececec);
+      padding: 3rem 2rem 0 2rem;
       text-align: center;
-      padding: 80px 20px;
-      background: linear-gradient(to right, #12284c, #1c3a60);
-      color: white;
     }
-    header h1 {
+    .hero img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .hero-text {
+      max-width: 600px;
+      margin: 2rem auto;
+    }
+    .hero-text h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 48px;
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      color: #222;
     }
-    header p {
-      font-size: 18px;
-      margin-top: 10px;
-    }
-    section {
-      padding: 60px 40px;
-    }
-    .product {
-      background: #e3e7ec;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    .product h2 {
-      font-size: 24px;
-      color: #12284c;
-    }
-    .product p {
-      font-size: 16px;
+    .hero-text p {
+      font-size: 1.1rem;
       color: #555;
     }
-    .button {
-      margin-top: 10px;
-      padding: 10px 20px;
-      background: #fdd835;
-      color: #111;
+    .btn {
+      background: #cc3366;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      text-decoration: none;
       font-weight: bold;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
+      transition: background 0.3s ease;
+      display: inline-block;
+      margin-top: 1rem;
     }
-    .cart, .about, .contact, .socials {
-      background: #fff;
-      border-radius: 8px;
-      padding: 20px;
-      margin-top: 40px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    .btn:hover {
+      background: #b82e5c;
     }
-    .remove-button {
-      margin-left: 10px;
-      background: red;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      padding: 4px 10px;
-      cursor: pointer;
+    .categories, .bundles, .email {
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: auto;
     }
-    footer {
-      background: #0b1a2d;
-      color: white;
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #333;
       text-align: center;
-      padding: 40px 20px;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1.5rem;
+      text-align: center;
+    }
+    .gallery-grid img {
+      border-radius: 15px;
+      width: 100%;
+      height: 130px;
+      object-fit: cover;
+    }
+    .gallery-grid p {
+      margin-top: 0.5rem;
+      font-weight: 500;
+    }
+    .footer-contact {
+      background: #333;
+      color: #fff;
+      padding: 2rem;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .footer-contact input, .footer-contact textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 5px;
+    }
+    .footer-contact button {
+      background: #cc3366;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .reviews {
+      background: #f7f7f7;
+      padding: 3rem 2rem;
+    }
+    .review {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      margin-bottom: 1.5rem;
+    }
+    .review p {
+      margin: 0.5rem 0;
+    }
+    .chat-widget {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .chat-widget a {
+      background: #25D366;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .chat-widget a:nth-child(2) {
+      background: #E1306C;
     }
   </style>
 </head>
 <body>
-
-<nav>
-  <div><strong>Tadriel's Rentals</strong></div>
-  <div>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#rentals">Rentals</a>
-    <a href="#contact">Contact</a>
-    <a href="#socials">Socials</a>
-    <a href="#cart">Cart</a>
+  <header class="navbar">
+    <div class="logo">Tadriel's Rentals</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Rentals</a></li>
+        <li><a href="#">Packages</a></li>
+        <li><a href="#">Cart</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="hero">
+    <img src="images/fables-hero.jpg" alt="Hero Image" />
+    <div class="hero-text">
+      <h1>Elegant Event Rentals</h1>
+      <p>Tables, tents, arches, candy carts and more for your perfect event.</p>
+      <a href="#" class="btn">Browse Rentals</a>
+    </div>
+  </section>
+  <section class="categories">
+    <h2>Rental Categories</h2>
+    <div class="gallery-grid">
+      <div><img src="images/chairs.jpg" alt="Chairs" /><p>Chairs & Tables</p></div>
+      <div><img src="images/tents.jpg" alt="Tents" /><p>Tents</p></div>
+      <div><img src="images/candy-cart.jpg" alt="Candy Cart" /><p>Candy Cart</p></div>
+      <div><img src="images/tableware.jpg" alt="Tableware" /><p>Tableware</p></div>
+      <div><img src="images/linens.jpg" alt="Linens" /><p>Linens</p></div>
+      <div><img src="images/wedding-arch.jpg" alt="Arch" /><p>Wedding Arch</p></div>
+      <div><img src="images/lights.jpg" alt="Lighting" /><p>Lighting</p></div>
+      <div><img src="images/love-letters.jpg" alt="Marquee" /><p>Marquee Letters</p></div>
+      <div><img src="images/backdrops.jpg" alt="Backdrop" /><p>Pipe & Drape Backdrops</p></div>
+    </div>
+  </section>
+  <section class="footer-contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="First name" required />
+      <input type="text" placeholder="Last name" required />
+      <input type="email" placeholder="Email address" required />
+      <textarea rows="3" placeholder="Your message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+  <section class="reviews">
+    <h2>Customer Reviews</h2>
+    <div class="review">
+      <p><strong>Isabella Marshall</strong></p>
+      <p>We were so happy with the chairs and tent setup from Tadriel’s Rentals. Highly recommend!</p>
+    </div>
+    <div class="review">
+      <p><strong>Zubida Qureshi</strong></p>
+      <p>Fantastic quality and service! Loved the arch and lights for our engagement.</p>
+    </div>
+  </section>
+  <div class="chat-widget">
+    <a href="https://wa.me/12407918534" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="https://instagram.com/ontario_event_planner" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
   </div>
-</nav>
-
-<header id="home">
-  <h1>Celebrate Without the Stress</h1>
-  <p>From backyard birthdays to bridal showers, we bring everything you need — straight to your door.</p>
-</header>
-
-<section id="about" class="about">
-  <h2>About Us</h2>
-  <p>Serving the GTA, Ancaster, and Caledonia, Tadriel's Rentals is your go-to for stylish, reliable event planning and rentals. We provide an all-in-one solution for parties and celebrations of all sizes.</p>
-</section>
-
-<section id="rentals">
-  <h2>Our Rentals</h2>
-
-  <div class="product">
-    <h2>Party Pack</h2>
-    <p>Includes chairs, tables, covers, and a small speaker — CAD $670</p>
-    <button class="button" onclick="addToCart('Party Pack', 670)">Add to Cart</button>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tadriel's Event Planners & Rentals</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #fffaf7;
+      color: #333;
+    }
+    header.navbar {
+      background: linear-gradient(90deg, #fff, #f7ecec);
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .navbar .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #cc3366;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.2rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+    .hero {
+      background: linear-gradient(to bottom, #fff, #ececec);
+      padding: 3rem 2rem 0 2rem;
+      text-align: center;
+    }
+    .hero img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .hero-text {
+      max-width: 600px;
+      margin: 2rem auto;
+    }
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      color: #222;
+    }
+    .hero-text p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+    .btn {
+      background: #cc3366;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+    .btn:hover {
+      background: #b82e5c;
+    }
+    .categories, .bundles, .email {
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #333;
+      text-align: center;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1.5rem;
+      text-align: center;
+    }
+    .gallery-grid img {
+      border-radius: 15px;
+      width: 100%;
+      height: 130px;
+      object-fit: cover;
+    }
+    .gallery-grid p {
+      margin-top: 0.5rem;
+      font-weight: 500;
+    }
+    .footer-contact {
+      background: #333;
+      color: #fff;
+      padding: 2rem;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .footer-contact input, .footer-contact textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 5px;
+    }
+    .footer-contact button {
+      background: #cc3366;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .reviews {
+      background: #f7f7f7;
+      padding: 3rem 2rem;
+    }
+    .review {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      margin-bottom: 1.5rem;
+    }
+    .review p {
+      margin: 0.5rem 0;
+    }
+    .chat-widget {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .chat-widget a {
+      background: #25D366;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .chat-widget a:nth-child(2) {
+      background: #E1306C;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Tadriel's Rentals</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Rentals</a></li>
+        <li><a href="#">Packages</a></li>
+        <li><a href="#">Cart</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="hero">
+    <img src="images/fables-hero.jpg" alt="Hero Image" />
+    <div class="hero-text">
+      <h1>Elegant Event Rentals</h1>
+      <p>Tables, tents, arches, candy carts and more for your perfect event.</p>
+      <a href="#" class="btn">Browse Rentals</a>
+    </div>
+  </section>
+  <section class="categories">
+    <h2>Rental Categories</h2>
+    <div class="gallery-grid">
+      <div><img src="images/chairs.jpg" alt="Chairs" /><p>Chairs & Tables</p></div>
+      <div><img src="images/tents.jpg" alt="Tents" /><p>Tents</p></div>
+      <div><img src="images/candy-cart.jpg" alt="Candy Cart" /><p>Candy Cart</p></div>
+      <div><img src="images/tableware.jpg" alt="Tableware" /><p>Tableware</p></div>
+      <div><img src="images/linens.jpg" alt="Linens" /><p>Linens</p></div>
+      <div><img src="images/wedding-arch.jpg" alt="Arch" /><p>Wedding Arch</p></div>
+      <div><img src="images/lights.jpg" alt="Lighting" /><p>Lighting</p></div>
+      <div><img src="images/love-letters.jpg" alt="Marquee" /><p>Marquee Letters</p></div>
+      <div><img src="images/backdrops.jpg" alt="Backdrop" /><p>Pipe & Drape Backdrops</p></div>
+    </div>
+  </section>
+  <section class="footer-contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="First name" required />
+      <input type="text" placeholder="Last name" required />
+      <input type="email" placeholder="Email address" required />
+      <textarea rows="3" placeholder="Your message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+  <section class="reviews">
+    <h2>Customer Reviews</h2>
+    <div class="review">
+      <p><strong>Isabella Marshall</strong></p>
+      <p>We were so happy with the chairs and tent setup from Tadriel’s Rentals. Highly recommend!</p>
+    </div>
+    <div class="review">
+      <p><strong>Zubida Qureshi</strong></p>
+      <p>Fantastic quality and service! Loved the arch and lights for our engagement.</p>
+    </div>
+  </section>
+  <div class="chat-widget">
+    <a href="https://wa.me/12407918534" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="https://instagram.com/ontario_event_planner" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
   </div>
-
-  <div class="product">
-    <h2>Bounce House</h2>
-    <p>Perfect for kid-friendly events — CAD $350</p>
-    <button class="button" onclick="addToCart('Bounce House', 350)">Add to Cart</button>
-  </div>
-
-  <div class="product">
-    <h2>Backdrops</h2>
-    <p>Elegant photo backdrops for events — CAD $250</p>
-    <button class="button" onclick="addToCart('Backdrops', 250)">Add to Cart</button>
-  </div>
-
-  <div class="product">
-    <h2>Balloons</h2>
-    <p>CAD $40 per balloon</p>
-    <button class="button" onclick="addToCart('Balloon', 40)">Add to Cart</button>
-  </div>
-
-  <div class="product">
-    <h2>Balloon Garland</h2>
-    <p>CAD $40 per inch</p>
-    <button class="button" onclick="addToCart('Balloon Garland', 40)">Add to Cart</button>
-  </div>
-
-</section>
-
-<section id="cart" class="cart">
-  <h2>Your Cart</h2>
-  <ul id="cart-items"></ul>
-  <p id="total-price">Total: CAD $0</p>
-</section>
-
-<section id="contact" class="contact">
-  <h2>Contact Us</h2>
-  <form id="contact-form">
-    <input type="text" name="name" placeholder="Your Name" required /><br><br>
-    <input type="email" name="email" placeholder="Your Email" required /><br><br>
-    <textarea name="message" placeholder="Your Message" required></textarea><br><br>
-    <button type="submit" class="button">Send Message</button>
-  </form>
-</section>
-
-<section id="socials" class="socials">
-  <h2>Follow Us</h2>
-  <p>Instagram: @tadriel.events</p>
-  <p>Facebook: Tadriel's Event Planning</p>
-</section>
-
-<footer>
-  <p>&copy; 2025 Tadriel's Event Planning & Rentals. All rights reserved.</p>
-</footer>
-
-<script>
-let cart = [];
-
-function addToCart(itemName, itemPrice) {
-  cart.push({ name: itemName, price: itemPrice });
-  updateCart();
-}
-
-function removeFromCart(index) {
-  cart.splice(index, 1);
-  updateCart();
-}
-
-function updateCart() {
-  const cartList = document.getElementById('cart-items');
-  const totalPriceElement = document.getElementById('total-price');
-  cartList.innerHTML = '';
-
-  let total = 0;
-  cart.forEach((item, index) => {
-    total += item.price;
-    const listItem = document.createElement('li');
-    listItem.innerHTML = `${item.name} - CAD $${item.price} <button class="remove-button" onclick="removeFromCart(${index})">Remove</button>`;
-    cartList.appendChild(listItem);
-  });
-
-  totalPriceElement.textContent = `Total: CAD $${total}`;
-}
-
-// Dummy EmailJS hook
-const contactForm = document.getElementById('contact-form');
-contactForm.addEventListener('submit', function(e) {
-  e.preventDefault();
-  alert('Message sent! We will get back to you shortly.');
-  contactForm.reset();
-});
-</script>
-
 </body>
 </html>
